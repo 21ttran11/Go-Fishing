@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:27348005229:ios:9fda68da2c847910a46a64</string>
+	<key>DATABASE_URL</key>
+	<string>https://go-fishing-eb93b-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

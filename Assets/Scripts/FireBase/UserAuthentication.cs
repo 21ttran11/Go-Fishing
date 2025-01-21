@@ -31,7 +31,7 @@ public class UserAuthentication : MonoBehaviour
 
     public void RegisterUser()
     {
-        if (auth != null)
+        if (auth == null)
         {
             feedbackText.text = "Firebase is not ready yet!";
             return;
@@ -65,7 +65,7 @@ public class UserAuthentication : MonoBehaviour
 
     public void LoginUser()
     {
-        if (auth != null)
+        if (auth == null)
         {
             feedbackText.text = "Firebase is not ready yet!";
             return;
