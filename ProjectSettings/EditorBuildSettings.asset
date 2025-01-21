@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/UserAuth/FirstScene.unity
+    guid: bbfebbff3bb06470b82ed4a92f25f9b8
+  - enabled: 1
+    path: Assets/Scenes/UserAuth/Register.unity
+    guid: 5972cd82457014951afe3a622c3f2f9a
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 69681401ac700416e9b0476849ff43be, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 431aa96a67b7e45bfa9d926681e8f72e, type: 2}
