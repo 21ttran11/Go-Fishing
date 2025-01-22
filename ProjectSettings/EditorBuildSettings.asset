@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UserAuth/Register.unity
     guid: 5972cd82457014951afe3a622c3f2f9a
+  - enabled: 1
+    path: Assets/Scenes/UserAuth/SignIn.unity
+    guid: 1744912156be942ba8a15adfe6f1bf03
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 69681401ac700416e9b0476849ff43be, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 431aa96a67b7e45bfa9d926681e8f72e, type: 2}
