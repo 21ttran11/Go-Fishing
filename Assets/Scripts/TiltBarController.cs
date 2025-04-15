@@ -13,13 +13,10 @@ public class TiltBarController : MonoBehaviour
     private float currentSpeed = 0f;
     private Vector2 barPosition;
 
-    public float targetMoveSpeed = 2f;
-    public float targetMoveRange = 400f;
-    private float timer = 0f;
-
     void Start()
     {
         barPosition = slidingBar.anchoredPosition;
+        target = GameObject.FindWithTag("FishTarget").GetComponent<RectTransform>();
     }
 
     void Update()
@@ -31,22 +28,13 @@ public class TiltBarController : MonoBehaviour
         barPosition.y += currentSpeed * Time.deltaTime;
         barPosition.y = Mathf.Clamp(barPosition.y, minY, maxY);
         slidingBar.anchoredPosition = barPosition;
+        CheckCondition();
 
-        MoveTarget();
-        
-    }
-
-    private void MoveTarget()
-    {
-        timer += Time.deltaTime * targetMoveSpeed;
-        Vector2 targetPos = target.anchoredPosition;
-        targetPos.y = Mathf.Sin(timer) * targetMoveRange;
-        target.anchoredPosition = targetPos;
     }
 
     private void CheckCondition()
     {
-
+        
     }
 
     private IEnumerator CountDown()
