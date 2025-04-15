@@ -13,6 +13,8 @@ public class TiltBarController : MonoBehaviour
     private float currentSpeed = 0f;
     private Vector2 barPosition;
 
+    private float timer = 0f;
+
     void Start()
     {
         barPosition = slidingBar.anchoredPosition;
@@ -21,6 +23,7 @@ public class TiltBarController : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
         float tilt = -Input.acceleration.y;
 
         currentSpeed = Mathf.Clamp(tilt * sensitivity, -maxSpeed, maxSpeed);

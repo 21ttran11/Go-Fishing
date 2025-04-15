@@ -1,28 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class FishTarget : MonoBehaviour
 {
-    public RectTransform target;
-    public float targetMoveSpeed = 2f;
-    public float targetMoveRange = 400f;
+    private RectTransform target;
+
+    [Header("Movement Settings")]
+    public float targetMoveRange = 900f;
+    public float minSpeed = 1f;
+    public float maxSpeed = 4f;
+    public float speedChangeInterval = 3f;
+    public float speedLerpTime = 1f;
+
+    private float currentSpeed;
+    private float targetSpeed;
+    private float speedLerpTimer = 0f;
     private float timer = 0f;
+    private float timeSinceLastChange = 0f;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         target = GetComponent<RectTransform>();
+        currentSpeed = Random.Range(minSpeed, maxSpeed);
+        targetSpeed = currentSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime * targetMoveSpeed;
-        Vector2 targetPos = target.anchoredPosition;
-        targetPos.y = Mathf.Sin(timer) * targetMoveRange;
-        target.anchoredPosition = targetPos;
+        timer += Time.deltaTime * currentSpeed;
+
+        Vector2 pos = target.anchoredPosition;
+        pos.y = Mathf.Sin(timer) * targetMoveRange;
+        target.anchoredPosition = pos;
+
+        timeSinceLastChange += Time.deltaTime;
+        if (timeSinceLastChange >= speedChangeInterval)
+        {
+            targetSpeed = Random.Range(minSpeed, maxSpeed);
+            speedLerpTimer = 0f;
+            timeSinceLastChange = 0f;
+        }
+
+
+        if (currentSpeed != targetSpeed)
+        {
+            speedLerpTimer += Time.deltaTime / speedLerpTime;
+            currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedLerpTimer);
+        }
     }
 }
