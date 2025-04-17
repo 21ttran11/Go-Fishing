@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishId: salmon
   fishName: Salmon
-  fishSprite: {fileID: 0}
+  fishSprite: {fileID: 962064644, guid: b83f7b18702624006ab2a65ab3cdbd44, type: 3}
+  nameTag: {fileID: -164398586, guid: f88ebfd3036804ec1be40f137ec246a3, type: 3}
+  unknownSprite: {fileID: -867117130, guid: dac64b8545ddf4dff8c26715fb4ab9e0, type: 3}
   description: Looks like a simple salmon
   rarity: 0

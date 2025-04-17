@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15470de41014d4695b70df2e837e0452, type: 3}
-  m_Name: Pufferfish
+  m_Name: Pubber
   m_EditorClassIdentifier: 
-  fishId: pufferfish
-  fishName: Pufferfish
-  fishSprite: {fileID: 0}
+  fishId: pubber
+  fishName: Pubber
+  fishSprite: {fileID: -1028672758, guid: 9fd2cc31f9eb34deea6e46a1f7fad2fa, type: 3}
+  nameTag: {fileID: -1909550690, guid: f2bd28eb3c8c0436c80d19d1521615e4, type: 3}
+  unknownSprite: {fileID: 1790619420, guid: 0eb4cb626d91149719383f175e9c9cf6, type: 3}
   description: Looks bloated
   rarity: 0

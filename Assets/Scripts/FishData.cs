@@ -5,7 +5,9 @@ public class FishData : ScriptableObject
 {
     public string fishId;         
     public string fishName;       
-    public Sprite fishSprite;     
+    public Sprite fishSprite;
+    public Sprite nameTag;
+    public Sprite unknownSprite;
     public string description;    
     public float rarity;          
 }
