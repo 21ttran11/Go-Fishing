@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15470de41014d4695b70df2e837e0452, type: 3}
+  m_Name: Crab
+  m_EditorClassIdentifier: 
+  fishId: crab
+  fishName: Crab
+  fishSprite: {fileID: -1278087976, guid: bb34b7c23a8f548769c1ae0642941044, type: 3}
+  nameTag: {fileID: 1021682888, guid: aa1734199b6b04768b93cbee77d903a8, type: 3}
+  unknownSprite: {fileID: 1367167644, guid: 58cc50f919ede4f558301bfb704f85e3, type: 3}
+  description: looks a little...grumpy
+  rarity: 0

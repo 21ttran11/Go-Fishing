@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15470de41014d4695b70df2e837e0452, type: 3}
+  m_Name: Chub
+  m_EditorClassIdentifier: 
+  fishId: chub
+  fishName: Chub
+  fishSprite: {fileID: 1228893218, guid: 49bad53ddfa9249fd8137613c12ccffc, type: 3}
+  nameTag: {fileID: -879605811, guid: 24b19b742ca134deeb38ebd4ee1cf397, type: 3}
+  unknownSprite: {fileID: 849213540, guid: e1b9f99a8fb7c40588ea825e0857d084, type: 3}
+  description: looks chubby
+  rarity: 0

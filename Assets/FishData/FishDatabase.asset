@@ -15,3 +15,8 @@ MonoBehaviour:
   allFish:
   - {fileID: 11400000, guid: 00ebe4ab9251c49c8ade84bdfa4860ec, type: 2}
   - {fileID: 11400000, guid: 0ff8f9c04c5c548899e43e98473bb71b, type: 2}
+  - {fileID: 11400000, guid: 037631705a4a943bb96dfddc890eb249, type: 2}
+  - {fileID: 11400000, guid: 178614f020c8044e38d9044585e6a578, type: 2}
+  - {fileID: 11400000, guid: b10d6092c7d524963bf895f70730e8c3, type: 2}
+  - {fileID: 11400000, guid: 6d82c6ab6590643aab166580a003ef2b, type: 2}
+  - {fileID: 11400000, guid: 509a6a2e241cb45ada20cc03295466c0, type: 2}

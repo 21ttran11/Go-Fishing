@@ -570,6 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077151361}
+  - component: {fileID: 1077151362}
   m_Layer: 0
   m_Name: CollectionManager
   m_TagString: Untagged
@@ -592,6 +593,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077151362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077151360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae16d2e8cd6d548f2b3af445aff6ee4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishDatabase: {fileID: 11400000, guid: 51c675bbcda284fd6aa034f94c23723b, type: 2}
+  fishItemPrefab: {fileID: 4849685151147529111, guid: 915d9978c01d4453bb05cef854226936, type: 3}
+  fishGridParent: {fileID: 1953665543}
+  questionMarkTag: {fileID: 233800666, guid: d1ef295e819ae47d3999901a807f5f02, type: 3}
+  testCaughtFishIds:
+  - salmon
+  - crab
+  - shrimp
+  - clown
+  - cbass
 --- !u!1 &1407844395
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,10 +999,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1835892700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.22440286}
+  m_AnchorMax: {x: 0.97179484, y: 0.88255453}
+  m_AnchoredPosition: {x: 16.499023, y: 0.24084473}
+  m_SizeDelta: {x: 32.998, y: 0.48145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1953665544
 MonoBehaviour:
@@ -994,16 +1017,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
+    m_Left: 160
+    m_Right: 100
+    m_Top: 190
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
+  m_CellSize: {x: 377, y: 100}
+  m_Spacing: {x: 51, y: 338}
+  m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &1953665545
 MonoBehaviour:
@@ -1025,7 +1048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
