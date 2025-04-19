@@ -19,3 +19,4 @@ MonoBehaviour:
   unknownSprite: {fileID: -667018567, guid: 432b0d65feede41e1862dfc10c024e9c, type: 3}
   description: looks average
   rarity: 0
+  rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}

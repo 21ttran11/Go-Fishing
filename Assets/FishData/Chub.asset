@@ -19,3 +19,4 @@ MonoBehaviour:
   unknownSprite: {fileID: 849213540, guid: e1b9f99a8fb7c40588ea825e0857d084, type: 3}
   description: looks chubby
   rarity: 0
+  rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}

@@ -9,5 +9,6 @@ public class FishData : ScriptableObject
     public Sprite nameTag;
     public Sprite unknownSprite;
     public string description;    
-    public float rarity;          
+    public float rarity;
+    public Sprite rarityTag;
 }

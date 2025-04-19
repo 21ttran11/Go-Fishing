@@ -8,6 +8,8 @@ public class TestCollection : MonoBehaviour
     public GameObject fishItemPrefab;
     public Transform fishGridParent;
     public Sprite questionMarkTag;
+    public Sprite newTagSprite;
+    public Sprite rarityTag;
 
     [Tooltip("List of fish IDs you want to show as caught in test mode.")]
     public List<string> testCaughtFishIds;
@@ -25,6 +27,8 @@ public class TestCollection : MonoBehaviour
             GameObject fishUI = Instantiate(fishItemPrefab, fishGridParent);
             Image fishImage = fishUI.transform.Find("FishIcon").GetComponent<Image>();
             Image nameTag = fishUI.transform.Find("NameTag").GetComponent<Image>();
+            Image rarityTag = fishUI.transform.Find("Tags/RarityTag").GetComponent<Image>();
+            Image newTag = fishUI.transform.Find("Tags/NewTag").GetComponent<Image>();
 
             if (caughtFishIds.Contains(fish.fishId))
             {
@@ -33,6 +37,11 @@ public class TestCollection : MonoBehaviour
 
                 nameTag.sprite = fish.nameTag;
                 nameTag.SetNativeSize();
+
+                rarityTag.sprite = fish.rarityTag;
+                rarityTag.SetNativeSize();
+
+                newTag.sprite = newTagSprite;
             }
             else
             {
@@ -41,6 +50,13 @@ public class TestCollection : MonoBehaviour
 
                 nameTag.sprite = questionMarkTag;
                 nameTag.SetNativeSize();
+
+                rarityTag.sprite = null;
+                newTag.sprite = null;
+
+                Color transparent = new Color(1, 1, 1, 0);
+                rarityTag.color = transparent;
+                newTag.color = transparent;
             }
         }
     }
