@@ -10,7 +10,10 @@ public class FishCollectionDisplay : MonoBehaviour
     public FishDatabase fishDatabase;
     public GameObject fishItemPrefab;
     public Transform fishGridParent;
-    public Sprite questionMarkSprite;
+    public Sprite questionMarkTag;
+    public Sprite newTagSprite;
+    public Sprite rarityTag;
+    public FishPopup fishPopup;
 
     private FirebaseFirestore db;
 
@@ -54,18 +57,48 @@ public class FishCollectionDisplay : MonoBehaviour
         foreach (FishData fish in allFish)
         {
             GameObject fishUI = Instantiate(fishItemPrefab, fishGridParent);
-            Image fishImage = fishUI.GetComponentInChildren<Image>();
-            Text fishName = fishUI.GetComponentInChildren<Text>();
+            Image fishImage = fishUI.transform.Find("FishIcon").GetComponent<Image>();
+            Image nameTag = fishUI.transform.Find("NameTag").GetComponent<Image>();
+            Image rarityTag = fishUI.transform.Find("Tags/RarityTag").GetComponent<Image>();
+            Image newTag = fishUI.transform.Find("Tags/NewTag").GetComponent<Image>();
+            Button button = fishUI.GetComponent<Button>();
 
             if (caughtFishIds.Contains(fish.fishId))
             {
+
+                if (button != null)
+                {
+                    FishData capturedFish = fish;
+                    button.onClick.AddListener(() => {
+                        fishPopup.Show(capturedFish, fishItemPrefab);
+                    });
+                }
+
                 fishImage.sprite = fish.fishSprite;
-                fishName.text = fish.fishName;
+                fishImage.SetNativeSize();
+
+                nameTag.sprite = fish.nameTag;
+                nameTag.SetNativeSize();
+
+                rarityTag.sprite = fish.rarityTag;
+                rarityTag.SetNativeSize();
+
+                newTag.sprite = newTagSprite;
             }
             else
             {
-                fishImage.sprite = questionMarkSprite;
-                fishName.text = "???";
+                fishImage.sprite = fish.unknownSprite;
+                fishImage.SetNativeSize();
+
+                nameTag.sprite = questionMarkTag;
+                nameTag.SetNativeSize();
+
+                rarityTag.sprite = null;
+                newTag.sprite = null;
+
+                Color transparent = new Color(1, 1, 1, 0);
+                rarityTag.color = transparent;
+                newTag.color = transparent;
             }
         }
     }

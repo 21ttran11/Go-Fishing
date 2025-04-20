@@ -10,6 +10,7 @@ public class TestCollection : MonoBehaviour
     public Sprite questionMarkTag;
     public Sprite newTagSprite;
     public Sprite rarityTag;
+    public FishPopup fishPopup;
 
     [Tooltip("List of fish IDs you want to show as caught in test mode.")]
     public List<string> testCaughtFishIds;
@@ -29,9 +30,18 @@ public class TestCollection : MonoBehaviour
             Image nameTag = fishUI.transform.Find("NameTag").GetComponent<Image>();
             Image rarityTag = fishUI.transform.Find("Tags/RarityTag").GetComponent<Image>();
             Image newTag = fishUI.transform.Find("Tags/NewTag").GetComponent<Image>();
+            Button button = fishUI.GetComponent<Button>();
 
             if (caughtFishIds.Contains(fish.fishId))
             {
+                if (button != null)
+                {
+                    FishData capturedFish = fish;
+                    button.onClick.AddListener(() => {
+                        fishPopup.Show(capturedFish, fishItemPrefab);
+                    });
+                }
+
                 fishImage.sprite = fish.fishSprite;
                 fishImage.SetNativeSize();
 
