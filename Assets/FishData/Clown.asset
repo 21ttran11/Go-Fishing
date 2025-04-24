@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15470de41014d4695b70df2e837e0452, type: 3}
+  m_Name: Clown
+  m_EditorClassIdentifier: 
+  fishId: clown
+  fishName: Clown
+  fishSprite: {fileID: 803881989, guid: ca127f2b9ebd74c349c7a06aa7e25fbc, type: 3}
+  nameTag: {fileID: 410959395, guid: 33fd021e717674bc9af183fc7d88b833, type: 3}
+  unknownSprite: {fileID: 303543336, guid: b8a37049dd5ca4c2faf21eef5fdb2f6d, type: 3}
+  description: looka silly
+  rarity: 0
+  rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}
