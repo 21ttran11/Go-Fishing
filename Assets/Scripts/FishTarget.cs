@@ -49,4 +49,9 @@ public class FishTarget : MonoBehaviour
             currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedLerpTimer);
         }
     }
+
+    public void StopTarget()
+    {
+        Destroy(this.gameObject);
+    }
 }

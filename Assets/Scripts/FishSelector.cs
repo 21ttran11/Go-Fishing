@@ -1,0 +1,66 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class FishSelector : MonoBehaviour
+{
+    public FishDatabase fishDatabase;
+    public GameObject fishItemPrefab;
+    public Canvas canvas; 
+    public Sprite newTagSprite;
+    public GameObject popUp;
+
+    private FishData selectedFish;
+
+    public void GetRandomFish()
+    {
+        if (fishDatabase == null || fishDatabase.allFish == null || fishDatabase.allFish.Count == 0)
+        {
+            Debug.LogWarning("Fish database is missing or empty!");
+            return;
+        }
+
+        int index = Random.Range(0, fishDatabase.allFish.Count);
+        selectedFish = fishDatabase.allFish[index];
+        Debug.Log("Caught a " + selectedFish.fishName);
+        CaughtPopup();
+    }
+
+    public void CaughtPopup()
+    {
+        if (selectedFish == null)
+        {
+            Debug.LogWarning("No fish selected!");
+            return;
+        }
+        popUp.SetActive(true);
+        GameObject fishUI = Instantiate(fishItemPrefab, canvas.transform);
+
+        RectTransform fishRect = fishUI.GetComponent<RectTransform>();
+        fishRect.anchorMin = new Vector2(0.5f, 0.5f);
+        fishRect.anchorMax = new Vector2(0.5f, 0.5f);
+        fishRect.pivot = new Vector2(0.5f, 0.5f);
+        fishRect.anchoredPosition = Vector2.zero;
+        fishRect.anchoredPosition += new Vector2(0f, 200f);
+        fishRect.localScale = Vector3.one * 1.3f;
+
+        Image fishImage = fishUI.transform.Find("FishIcon").GetComponent<Image>();
+        Image nameTag = fishUI.transform.Find("NameTag").GetComponent<Image>();
+        Image rarityTag = fishUI.transform.Find("Tags/RarityTag").GetComponent<Image>();
+        Image newTag = fishUI.transform.Find("Tags/NewTag").GetComponent<Image>();
+
+        fishImage.sprite = selectedFish.fishSprite;
+        fishImage.SetNativeSize();
+
+        nameTag.sprite = selectedFish.nameTag;
+        nameTag.SetNativeSize();
+
+        rarityTag.sprite = selectedFish.rarityTag;
+        rarityTag.SetNativeSize();
+
+        if (newTagSprite != null && newTag != null)
+        {
+            newTag.sprite = newTagSprite;
+            newTag.SetNativeSize();
+        }
+    }
+}
