@@ -13,6 +13,8 @@ public class FishSelector : MonoBehaviour
     public Sprite newTagSprite;
     public GameObject popUp;
 
+    public GameObject homeButton;
+
     private FishData selectedFish;
     private FirebaseFirestore db;
 
@@ -44,6 +46,7 @@ public class FishSelector : MonoBehaviour
         }
 
         popUp.SetActive(true);
+        homeButton.SetActive(true);
         GameObject fishUI = Instantiate(fishItemPrefab, canvas.transform);
 
         RectTransform fishRect = fishUI.GetComponent<RectTransform>();
