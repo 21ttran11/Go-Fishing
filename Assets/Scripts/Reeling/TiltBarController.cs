@@ -90,10 +90,11 @@ public class TiltBarController : MonoBehaviour
         isDraining = true;
         yield return new WaitForSeconds(delay);
 
-        if (!isOverlapping)
+        while (!isOverlapping && completion > 0f)
         {
-            completion -= drainSpeed;
+            completion -= drainSpeed * Time.deltaTime;
             completion = Mathf.Clamp01(completion);
+            yield return null; 
         }
 
         isDraining = false;

@@ -15,6 +15,8 @@ public class FishSelector : MonoBehaviour
 
     public GameObject homeButton;
 
+    public SceneChanger sceneChanger;
+
     private FishData selectedFish;
     private FirebaseFirestore db;
 
@@ -61,6 +63,14 @@ public class FishSelector : MonoBehaviour
         Image nameTag = fishUI.transform.Find("NameTag").GetComponent<Image>();
         Image rarityTag = fishUI.transform.Find("Tags/RarityTag").GetComponent<Image>();
         Image newTag = fishUI.transform.Find("Tags/NewTag").GetComponent<Image>();
+        Button button = fishUI.GetComponent<Button>();
+
+        if (button != null)
+        {
+            button.onClick.AddListener(() => {
+                sceneChanger.ChangeScene("Collection");
+            });
+        }
 
         fishImage.sprite = selectedFish.fishSprite;
         fishImage.SetNativeSize();
