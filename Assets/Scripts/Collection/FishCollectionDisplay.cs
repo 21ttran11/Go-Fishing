@@ -65,7 +65,6 @@ public class FishCollectionDisplay : MonoBehaviour
 
             if (caughtFishIds.Contains(fish.fishId))
             {
-
                 if (button != null)
                 {
                     FishData capturedFish = fish;

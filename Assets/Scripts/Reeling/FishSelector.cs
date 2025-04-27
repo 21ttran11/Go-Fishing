@@ -1,15 +1,25 @@
 using UnityEngine;
+using System.Collections.Generic;
+using Firebase.Firestore;
+using Firebase.Auth;
+using System.Threading.Tasks;
 using UnityEngine.UI;
 
 public class FishSelector : MonoBehaviour
 {
     public FishDatabase fishDatabase;
     public GameObject fishItemPrefab;
-    public Canvas canvas; 
+    public Canvas canvas;
     public Sprite newTagSprite;
     public GameObject popUp;
 
     private FishData selectedFish;
+    private FirebaseFirestore db;
+
+    void Start()
+    {
+        db = FirebaseFirestore.DefaultInstance; // Initialize Firestore
+    }
 
     public void GetRandomFish()
     {
@@ -32,6 +42,7 @@ public class FishSelector : MonoBehaviour
             Debug.LogWarning("No fish selected!");
             return;
         }
+
         popUp.SetActive(true);
         GameObject fishUI = Instantiate(fishItemPrefab, canvas.transform);
 
@@ -61,6 +72,60 @@ public class FishSelector : MonoBehaviour
         {
             newTag.sprite = newTagSprite;
             newTag.SetNativeSize();
+        }
+
+        string userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        _ = SaveCaughtFish(userId, selectedFish.fishId);
+    }
+
+    private async Task SaveCaughtFish(string userId, string fishId)
+    {
+        string userIdCheck = FirebaseAuth.DefaultInstance.CurrentUser?.UserId;
+        if (string.IsNullOrEmpty(userIdCheck))
+        {
+            Debug.LogError("User is not signed in!");
+            return;
+        }
+        Debug.Log("User ID: " + userIdCheck);
+
+        DocumentReference docRef = db.Collection("users").Document(userId);
+
+        Debug.Log("Fetching document for user: " + userIdCheck);
+
+        DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+        if (snapshot.Exists)
+        {
+            Debug.Log("Document exists");
+        }
+        else
+        {
+            Debug.Log("Document does not exist, creating new one");
+        }
+
+        if (snapshot.Exists)
+        {
+            Dictionary<string, object> caughtFish = snapshot.GetValue<Dictionary<string, object>>("caughtFish");
+            if (caughtFish == null)
+            {
+                Debug.Log("Creating caughtFish dictionary");
+                caughtFish = new Dictionary<string, object>();
+            }
+
+            if (!caughtFish.ContainsKey(fishId))
+            {
+                Debug.Log("Adding fish");
+                caughtFish.Add(fishId, true);
+            }
+
+            await docRef.UpdateAsync("caughtFish", caughtFish);
+        }
+        else
+        {
+            Dictionary<string, object> caughtFish = new Dictionary<string, object>
+            {
+                { fishId, true }
+            };
+            await docRef.SetAsync(new Dictionary<string, object> { { "caughtFish", caughtFish } });
         }
     }
 }

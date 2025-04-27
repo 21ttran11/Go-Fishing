@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641263, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,16 +206,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 401304749}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+      - m_Target: {fileID: 2124724665}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Register
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &401304747
@@ -269,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362041cebbd6f4ce1a860dce91b6ef06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Register
 --- !u!1 &431754944
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +374,6 @@ GameObject:
   - component: {fileID: 614193366}
   - component: {fileID: 614193365}
   - component: {fileID: 614193364}
-  - component: {fileID: 614193363}
   m_Layer: 5
   m_Name: Sign In Button
   m_TagString: Untagged
@@ -404,19 +401,6 @@ RectTransform:
   m_AnchoredPosition: {x: 11, y: -147}
   m_SizeDelta: {x: 888.4327, y: 310.079}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &614193363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614193361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362041cebbd6f4ce1a860dce91b6ef06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: SignIn
 --- !u!114 &614193364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,16 +445,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614193363}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+      - m_Target: {fileID: 2124724665}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SignIn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &614193365
@@ -1320,6 +1304,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2124724664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124724666}
+  - component: {fileID: 2124724665}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2124724665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124724664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2129df218f5b7414c983635aac6a9a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2124724666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124724664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 489.7818, y: 1350.9287, z: -4.8392124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1328,3 +1356,4 @@ SceneRoots:
   - {fileID: 431754946}
   - {fileID: 998615903}
   - {fileID: 1973632596}
+  - {fileID: 2124724666}

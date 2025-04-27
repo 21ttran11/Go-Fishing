@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UserAuth/SignIn.unity
     guid: 1744912156be942ba8a15adfe6f1bf03
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 00bbd83b600a64adebf70cbfe33d2485
+  - enabled: 1
+    path: Assets/Scenes/Fishing.unity
+    guid: de915a96aaea00a44bb60f3d1eb815a4
+  - enabled: 1
+    path: Assets/Scenes/Collection.unity
+    guid: 745d629d064d64abc889b7e7fea4e9e1
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 69681401ac700416e9b0476849ff43be, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 431aa96a67b7e45bfa9d926681e8f72e, type: 2}

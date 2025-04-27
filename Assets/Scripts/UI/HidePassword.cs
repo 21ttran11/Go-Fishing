@@ -6,7 +6,7 @@ using TMPro;
 public class HidePassword : MonoBehaviour
 {
     private TMP_InputField password;
-    // Start is called before the first frame update
+
     void Start()
     {
         password = gameObject.GetComponent<TMP_InputField>();

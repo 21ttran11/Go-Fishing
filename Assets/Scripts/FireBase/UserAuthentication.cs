@@ -4,6 +4,7 @@ using Firebase.Auth;
 using Firebase.Extensions;
 using TMPro;
 using System.Collections;
+using UnityEngine.Events;
 
 public class UserAuthentication : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class UserAuthentication : MonoBehaviour
     public TMP_InputField passwordInputField;
     public TMP_Text feedbackText;
 
+    public UnityEvent signIn;
     private FirebaseAuth auth;
 
     private void Start()
@@ -87,6 +89,7 @@ public class UserAuthentication : MonoBehaviour
                 Firebase.Auth.AuthResult authResult = task.Result;
                 FirebaseUser User = authResult.User;
                 feedbackText.text = "Login successful!";
+                signIn?.Invoke();
             }
             else
             {
