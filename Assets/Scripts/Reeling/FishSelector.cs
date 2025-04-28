@@ -22,7 +22,7 @@ public class FishSelector : MonoBehaviour
 
     void Start()
     {
-        db = FirebaseFirestore.DefaultInstance; // Initialize Firestore
+        db = FirebaseFirestore.DefaultInstance; 
     }
 
     public void GetRandomFish()

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15470de41014d4695b70df2e837e0452, type: 3}
+  m_Name: Matcha
+  m_EditorClassIdentifier: 
+  fishId: matcha
+  fishName: Matcha
+  fishSprite: {fileID: 232010818, guid: b133bc4b4f9ef49c4913f2a9c248a11e, type: 3}
+  nameTag: {fileID: 2022137599, guid: b133bc4b4f9ef49c4913f2a9c248a11e, type: 3}
+  unknownSprite: {fileID: -23948024, guid: 3f79515ae458b4a03928615f3142aed5, type: 3}
+  description: looks like an addiction
+  rarity: 0
+  rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}
+  funFacts:
+  - This matcha liked Airoma before it got popular
+  - Matcha is ceremonial grade
