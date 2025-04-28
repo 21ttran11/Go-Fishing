@@ -20,6 +20,7 @@ MonoBehaviour:
   description: looks like an addiction
   availableZones:
   - {fileID: 11400000, guid: 8be0944b181c64a7f945a599efa605c9, type: 2}
+  - {fileID: 11400000, guid: 85f14885bc269458ea9341aab9c6c5c9, type: 2}
   rarity: 0
   rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}
   funFacts:

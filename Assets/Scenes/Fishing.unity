@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c84b8e6dc7d575479aabd906034b91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetMoveRange: 300
+  targetMoveRange: 800
   minSpeed: 1
   maxSpeed: 4
   speedChangeInterval: 3
