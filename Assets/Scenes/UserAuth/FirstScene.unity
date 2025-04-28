@@ -682,8 +682,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ebf71a32083bda4e8f4457f998e709d, type: 2}
-  m_sharedMaterial: {fileID: 8103995594475970054, guid: 7ebf71a32083bda4e8f4457f998e709d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
+  m_sharedMaterial: {fileID: 8103995594475970054, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -839,8 +839,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ebf71a32083bda4e8f4457f998e709d, type: 2}
-  m_sharedMaterial: {fileID: 8103995594475970054, guid: 7ebf71a32083bda4e8f4457f998e709d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
+  m_sharedMaterial: {fileID: 8103995594475970054, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -994,8 +994,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: pomjellies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ebf71a32083bda4e8f4457f998e709d, type: 2}
-  m_sharedMaterial: {fileID: 8103995594475970054, guid: 7ebf71a32083bda4e8f4457f998e709d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
+  m_sharedMaterial: {fileID: 8103995594475970054, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

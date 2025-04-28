@@ -17,6 +17,10 @@ MonoBehaviour:
   fishSprite: {fileID: 803881989, guid: ca127f2b9ebd74c349c7a06aa7e25fbc, type: 3}
   nameTag: {fileID: 410959395, guid: 33fd021e717674bc9af183fc7d88b833, type: 3}
   unknownSprite: {fileID: 303543336, guid: b8a37049dd5ca4c2faf21eef5fdb2f6d, type: 3}
-  description: looka silly
+  description: looks a little silly
   rarity: 0
   rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}
+  funFacts:
+  - Clown is often the talk of the town
+  - Clown's favorite game is peek a boo
+  - Sniff the flower

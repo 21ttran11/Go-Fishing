@@ -20,3 +20,7 @@ MonoBehaviour:
   description: Looks like a simple salmon
   rarity: 0
   rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}
+  funFacts:
+  - Salmon is the tastiest fish
+  - This salmon is pronounced like almond
+  - Salmon are the closest related to mermaids

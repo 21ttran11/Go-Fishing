@@ -20,3 +20,7 @@ MonoBehaviour:
   description: Looks bloated
   rarity: 0
   rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}
+  funFacts:
+  - Pub pub pass
+  - Don't take a pubber out for a walk
+  - ...OUCH!

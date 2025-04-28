@@ -20,3 +20,7 @@ MonoBehaviour:
   description: looks average
   rarity: 0
   rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}
+  funFacts:
+  - Sea you later bass
+  - This fish graduated highschool with a 3.0
+  - Mid fish.

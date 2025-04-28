@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class FishPopup : MonoBehaviour
 {
     public Transform fishItemContainer;
-    public TMP_Text descriptionText; 
+    public TMP_Text descriptionText;
+    public TMP_Text funfactsText;
     public Animator animator;
     public GameObject backgroundButton;
 
@@ -13,10 +14,9 @@ public class FishPopup : MonoBehaviour
 
     public void Show(FishData fishData, GameObject fishItemPrefab)
     {
-        if (currentFishItem != null)
-            Destroy(currentFishItem);
 
         currentFishItem = Instantiate(fishItemPrefab, fishItemContainer);
+
 
         Image fishImage = currentFishItem.transform.Find("FishIcon").GetComponent<Image>();
         fishImage.sprite = fishData.fishSprite;
@@ -26,13 +26,19 @@ public class FishPopup : MonoBehaviour
         nameTag.sprite = fishData.nameTag;
         nameTag.SetNativeSize();
 
+
         Image rarityTag = currentFishItem.transform.Find("Tags/RarityTag").GetComponent<Image>();
         rarityTag.sprite = fishData.rarityTag;
         rarityTag.SetNativeSize();
 
         descriptionText.text = fishData.description;
 
-        currentFishItem.transform.localScale = Vector3.one * 1.3f;
+        foreach (string fact in fishData.funFacts)
+        {
+            funfactsText.text += "- " + fact + "\n";
+        }
+
+        currentFishItem.transform.localScale = Vector3.one * 1.0f;
 
         animator.Play("Opening");
 
@@ -43,5 +49,19 @@ public class FishPopup : MonoBehaviour
     {
         animator.Play("Closing");
         backgroundButton.SetActive(false);
+    }
+
+
+    public void Cleanup()
+    {
+
+        descriptionText.text = string.Empty;
+        funfactsText.text = string.Empty;
+
+        if (currentFishItem != null)
+        {
+            Destroy(currentFishItem);
+            currentFishItem = null;
+        }
     }
 }

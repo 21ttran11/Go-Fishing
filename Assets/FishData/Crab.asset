@@ -20,3 +20,7 @@ MonoBehaviour:
   description: looks a little...grumpy
   rarity: 0
   rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}
+  funFacts:
+  - This crab walks forwards
+  - Snap snap
+  - This crab is actually very happy

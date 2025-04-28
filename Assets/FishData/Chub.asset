@@ -20,3 +20,7 @@ MonoBehaviour:
   description: looks chubby
   rarity: 0
   rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}
+  funFacts:
+  - Chubs love their trinkets
+  - Chub will trade you for a shiny pebble
+  - Ever seen this chub and spider man in the same room?
