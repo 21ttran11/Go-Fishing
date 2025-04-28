@@ -154,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slidingBar: {fileID: 1542157076}
   target: {fileID: 1624968414}
-  sensitivity: 10000
-  maxSpeed: 900
+  sensitivity: 20000
+  maxSpeed: 1032.2
   minY: -835
   maxY: 850.3
   completion: 0.5
@@ -1331,7 +1331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.0297, y: -130.16116}
+  m_AnchoredPosition: {x: 9, y: -130.16116}
   m_SizeDelta: {x: 851.331, y: 260.3224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542157077
