@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using Niantic.Lightship.AR.Semantics; 
 public class SpawnOnARMesh : MonoBehaviour
 {
     [SerializeField] private List<GameObject> spawnObjects = new List<GameObject>();
@@ -16,11 +15,15 @@ public class SpawnOnARMesh : MonoBehaviour
 
     private MeshAnalyser meshAnalyser;
     private Mesh arMesh;
-    // Start is called before the first frame update
+    private SemanticQuerying _semanticQuerying;  
+
     void Start()
     {
         if (spawnLikelyHood == 0) return;
+
         meshAnalyser = GetComponent<MeshAnalyser>();
+        _semanticQuerying = FindObjectOfType<SemanticQuerying>(); 
+
         meshAnalyser.analysisDone += StartSpawning;
     }
 
@@ -33,7 +36,6 @@ public class SpawnOnARMesh : MonoBehaviour
     {
         arMesh = GetComponent<MeshFilter>().sharedMesh;
 
-
         int spawnLikely = Random.Range(0, 100 / spawnLikelyHood);
         Debug.Log("Spawnlikely => " + spawnLikely);
 
@@ -45,10 +47,13 @@ public class SpawnOnARMesh : MonoBehaviour
         if (arMesh.vertexCount > minVertsForSpawn &&
             meshAnalyser.IsGround)
         {
-            InstantiateObject(GetRandomObject());
+            if (_semanticQuerying != null && _semanticQuerying.Channel == "ground")
+            {
+                InstantiateObject(GetRandomObject());
+            }
         }
-
     }
+
     GameObject GetRandomObject()
     {
         return spawnObjects[Random.Range(0, spawnObjects.Count)];
@@ -56,8 +61,12 @@ public class SpawnOnARMesh : MonoBehaviour
 
     void InstantiateObject(GameObject obj)
     {
-        spawnedObject = Instantiate(obj, GetRandomVector(), Quaternion.identity);
-        spawnedObject.transform.localScale *= scaler;
+        Vector3 spawnPosition = GetRandomVector();
+        if (spawnPosition != Vector3.zero)
+        {
+            spawnedObject = Instantiate(obj, spawnPosition, Quaternion.identity);
+            spawnedObject.transform.localScale *= scaler;
+        }
     }
 
     Vector3 GetRandomVector()

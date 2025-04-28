@@ -15,17 +15,19 @@
 	<key>STORAGE_BUCKET</key>
 	<string>go-fishing-eb93b.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:27348005229:ios:9fda68da2c847910a46a64</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.yourcompany.yourapp</string>
 	<key>DATABASE_URL</key>
 	<string>https://go-fishing-eb93b-default-rtdb.firebaseio.com</string>
 </dict>

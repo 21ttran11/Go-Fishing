@@ -51,7 +51,7 @@ MonoBehaviour:
       m_surfaceAnchorFailure: 0
       m_trackingStateReason: 0
   _devicePlaybackSettings:
-    _usePlayback: 1
+    _usePlayback: 0
     _playbackDatasetPath: 
     _runPlaybackManually: 0
     _loopInfinitely: 0
