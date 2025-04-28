@@ -18,9 +18,10 @@ MonoBehaviour:
   nameTag: {fileID: -879605811, guid: 24b19b742ca134deeb38ebd4ee1cf397, type: 3}
   unknownSprite: {fileID: 849213540, guid: e1b9f99a8fb7c40588ea825e0857d084, type: 3}
   description: looks chubby
+  availableZones:
+  - {fileID: 11400000, guid: 91e891ed28907488bae0e6cf38fd0b99, type: 2}
   rarity: 0
   rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}
   funFacts:
-  - Chubs love their trinkets
+  - Ever seen this chub and Spiderman in the same room?
   - Chub will trade you for a shiny pebble
-  - Ever seen this chub and spider man in the same room?

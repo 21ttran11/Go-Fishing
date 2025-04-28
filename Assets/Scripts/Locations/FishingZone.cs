@@ -11,9 +11,23 @@ public class FishingZone : ScriptableObject
 
     public bool IsWithinZone(Vector2 playerLocation)
     {
-        float radiusInMeters = radiusKm * 1000f;
+        float lat1 = Mathf.Deg2Rad * coordinates.x;
+        float lon1 = Mathf.Deg2Rad * coordinates.y;
+        float lat2 = Mathf.Deg2Rad * playerLocation.x;
+        float lon2 = Mathf.Deg2Rad * playerLocation.y;
 
-        float distance = Vector2.Distance(playerLocation, coordinates);
-        return distance <= radiusInMeters; 
+        float earthRadius = 6371000f;
+
+        float dLat = lat2 - lat1;
+        float dLon = lon2 - lon1;
+
+        float a = Mathf.Sin(dLat / 2) * Mathf.Sin(dLat / 2) +
+                  Mathf.Cos(lat1) * Mathf.Cos(lat2) *
+                  Mathf.Sin(dLon / 2) * Mathf.Sin(dLon / 2);
+        float c = 2 * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1 - a));
+
+        float distance = earthRadius * c; 
+
+        return distance <= radiusKm * 1000f; 
     }
 }
