@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LocationService : MonoBehaviour
 {
-    private float latitude;
-    private float longitude;
+    public float latitude;
+    public float longitude;
 
     void Start()
     {

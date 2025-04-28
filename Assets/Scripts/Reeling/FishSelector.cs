@@ -12,31 +12,83 @@ public class FishSelector : MonoBehaviour
     public Canvas canvas;
     public Sprite newTagSprite;
     public GameObject popUp;
-
     public GameObject homeButton;
-
     public SceneChanger sceneChanger;
+
+    [SerializeField]
+    public List<FishData> availableFish = new List<FishData>();
+    private LocationService locationService;
 
     private FishData selectedFish;
     private FirebaseFirestore db;
 
+    public FishingZoneDatabase fishingZones;  
+
     void Start()
     {
-        db = FirebaseFirestore.DefaultInstance; 
+        db = FirebaseFirestore.DefaultInstance;
+        locationService = FindObjectOfType<LocationService>();
     }
 
     public void GetRandomFish()
     {
+
         if (fishDatabase == null || fishDatabase.allFish == null || fishDatabase.allFish.Count == 0)
         {
             Debug.LogWarning("Fish database is missing or empty!");
             return;
         }
 
-        int index = Random.Range(0, fishDatabase.allFish.Count);
-        selectedFish = fishDatabase.allFish[index];
+        List<FishData> availableFish = FilterFishByLocation(fishDatabase.allFish);
+
+        if (availableFish.Count == 0)
+        {
+            Debug.LogWarning("No fish available in this location!");
+            return;
+        }
+
+        int index = Random.Range(0, availableFish.Count);
+        selectedFish = availableFish[index];
         Debug.Log("Caught a " + selectedFish.fishName);
         CaughtPopup();
+    }
+
+    private List<FishData> FilterFishByLocation(List<FishData> allFish)
+    {
+        Vector2 playerLocation = new Vector2(locationService.latitude, locationService.longitude);
+
+        if (locationService == null)
+        {
+            Debug.LogError("Location service is not initialized.");
+            return new List<FishData>();
+        }
+
+        foreach (var fish in allFish)
+        {
+            bool isFishInAvailableZone = false;
+
+            if (fish.availableZones.Count == 0)
+            {
+                availableFish.Add(fish);
+                continue;
+            }
+
+            foreach (var zone in fish.availableZones)
+            {
+                if (zone.IsWithinZone(playerLocation))
+                {
+                    isFishInAvailableZone = true;
+                    break;  
+                }
+            }
+
+            if (isFishInAvailableZone)
+            {
+                availableFish.Add(fish);
+            }
+        }
+
+        return availableFish;
     }
 
     public void CaughtPopup()

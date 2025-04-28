@@ -10,6 +10,7 @@ public class FishData : ScriptableObject
     public Sprite nameTag;
     public Sprite unknownSprite;
     public string description;
+    public List<FishingZone> availableZones;
     public float rarity;
     public Sprite rarityTag;
 

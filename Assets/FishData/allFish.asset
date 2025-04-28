@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b1d786876754a499442c34715064b7, type: 3}
-  m_Name: FishDatabase
+  m_Name: allFish
   m_EditorClassIdentifier: 
   allFish:
   - {fileID: 11400000, guid: 00ebe4ab9251c49c8ade84bdfa4860ec, type: 2}
