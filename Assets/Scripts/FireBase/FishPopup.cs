@@ -38,7 +38,7 @@ public class FishPopup : MonoBehaviour
             funfactsText.text += "- " + fact + "\n";
         }
 
-        currentFishItem.transform.localScale = Vector3.one * 1.0f;
+        currentFishItem.transform.localScale = Vector3.one * 1.3f;
 
         animator.Play("Opening");
 

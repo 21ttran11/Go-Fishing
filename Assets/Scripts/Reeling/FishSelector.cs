@@ -15,6 +15,8 @@ public class FishSelector : MonoBehaviour
     public GameObject homeButton;
     public SceneChanger sceneChanger;
 
+    public GameObject winningBackground;
+
     [SerializeField]
     public List<FishData> availableFish = new List<FishData>();
     private LocationService locationService;
@@ -101,6 +103,7 @@ public class FishSelector : MonoBehaviour
 
         popUp.SetActive(true);
         homeButton.SetActive(true);
+        winningBackground.SetActive(true);
         GameObject fishUI = Instantiate(fishItemPrefab, canvas.transform);
 
         RectTransform fishRect = fishUI.GetComponent<RectTransform>();
@@ -108,7 +111,7 @@ public class FishSelector : MonoBehaviour
         fishRect.anchorMax = new Vector2(0.5f, 0.5f);
         fishRect.pivot = new Vector2(0.5f, 0.5f);
         fishRect.anchoredPosition = Vector2.zero;
-        fishRect.anchoredPosition += new Vector2(0f, 200f);
+        fishRect.anchoredPosition += new Vector2(0f, 150f);
         fishRect.localScale = Vector3.one * 1.3f;
 
         Image fishImage = fishUI.transform.Find("FishIcon").GetComponent<Image>();
