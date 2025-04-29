@@ -20,6 +20,8 @@ public class UserAuthentication : MonoBehaviour
     public UnityEvent signIn;
     private FirebaseAuth auth;
 
+    public bool hasCurrentUser;
+
     private void Start()
     {
         StartCoroutine(InitializeFirebaseWhenReady());
@@ -33,25 +35,40 @@ public class UserAuthentication : MonoBehaviour
         }
         auth = FirebaseAuth.DefaultInstance;
         Debug.Log("Firebase Auth ready.");
+    }
 
+    public void CheckUser()
+    {
         if (auth.CurrentUser != null)
         {
+            hasCurrentUser = true;
+            fishTransition.Play("fish transition");
+            StartCoroutine(WaitForTransition(1f));
             Debug.Log("User already signed in: " + auth.CurrentUser.Email);
-            feedbackText.text = "Welcome back, " + auth.CurrentUser.Email;
-            signIn?.Invoke(); 
         }
         else
         {
             Debug.Log("No user is currently signed in.");
-            feedbackText.text = "Please log in.";
-            if(fishTransition != null)
+            if (fishTransition != null)
             {
+                hasCurrentUser = false;
+                StartCoroutine(WaitForTransition(0.5f));
                 fishTransition.Play("fish transition");
             }
-            if(fields != null)
+            if (fields != null)
             {
                 fields.SetActive(true);
             }
+        }
+    }
+
+    public IEnumerator WaitForTransition(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if(hasCurrentUser == true)
+        {
+            Debug.Log("User already signed in: " + auth.CurrentUser.Email);
+            signIn?.Invoke();
         }
     }
 

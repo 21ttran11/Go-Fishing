@@ -1026,6 +1026,8 @@ MonoBehaviour:
   emailInputField: {fileID: 1181316075}
   passwordInputField: {fileID: 1925614976}
   feedbackText: {fileID: 1776337448}
+  fishTransition: {fileID: 0}
+  fields: {fileID: 0}
   signIn:
     m_PersistentCalls:
       m_Calls:
@@ -1266,7 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.854902, g: 0.92549026, b: 1, a: 1}
+  m_Color: {r: 0.57564974, g: 0.8301887, b: 0.7877655, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1658,7 +1660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -465, y: -2364}
+  m_AnchoredPosition: {x: -465, y: -2383}
   m_SizeDelta: {x: 726.54016, y: 94.65454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446624146
@@ -1703,15 +1705,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: pomjellies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
-  m_sharedMaterial: {fileID: 8103995594475970054, guid: f3963ee236c5c4bdc9b212e5e8dd0381, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c108f381fd57d4d9c944210417b2ef93, type: 2}
+  m_sharedMaterial: {fileID: -5257880378786748138, guid: c108f381fd57d4d9c944210417b2ef93, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2150773298
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
+    rgba: 2160710803
+  m_fontColor: {r: 0.5764706, g: 0.83137256, b: 0.7882353, a: 0.5}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1734,7 +1736,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1927,7 +1929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 948feac3116d74c3f9260e02eb287391, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bd0d112b819341b7bf537d07d844945, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
