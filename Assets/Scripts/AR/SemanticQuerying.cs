@@ -14,6 +14,7 @@ public class SemanticQuerying : MonoBehaviour
 
     [Header("UI Display")]
     public TMP_Text castingText;
+    public GameObject noWater;
     //public TMP_Text _text;
 
     [Header("Spawning Settings")]
@@ -82,8 +83,10 @@ public class SemanticQuerying : MonoBehaviour
 
                 if (_channel == "water")
                 {
+                    noWater.SetActive(false);
                     if (!detectingGround)
                     {
+                        noWater.SetActive(false);
                         detectingGround = true;
                         groundHoldTimer = 0.0f;
                         requiredHoldTime = Random.Range(minHoldTime, maxHoldTime);
@@ -94,6 +97,7 @@ public class SemanticQuerying : MonoBehaviour
                         groundHoldTimer += _timer;
                         if (groundHoldTimer >= requiredHoldTime)
                         {
+                            noWater.SetActive(false);
                             SpawnInFrontOfCamera();
                             castingText.text = "click to reel";
                         }
@@ -101,6 +105,7 @@ public class SemanticQuerying : MonoBehaviour
                 }
                 else
                 {
+                    noWater.SetActive(true);
                     detectingGround = false;
                     groundHoldTimer = 0.0f;
                 }
@@ -109,7 +114,7 @@ public class SemanticQuerying : MonoBehaviour
             {
                 Debug.Log("No semantic channel detected at the center.");
                 //_text.text = "No channel detected";
-
+                noWater.SetActive(true);
                 detectingGround = false;
                 groundHoldTimer = 0.0f;
             }
