@@ -16,11 +16,10 @@ MonoBehaviour:
   fishName: Matcha
   fishSprite: {fileID: 232010818, guid: b133bc4b4f9ef49c4913f2a9c248a11e, type: 3}
   nameTag: {fileID: 2022137599, guid: b133bc4b4f9ef49c4913f2a9c248a11e, type: 3}
-  unknownSprite: {fileID: -23948024, guid: 3f79515ae458b4a03928615f3142aed5, type: 3}
+  unknownSprite: {fileID: -422000912, guid: a889aa289ea584c61a79de843576990f, type: 3}
   description: looks like an addiction
   availableZones:
   - {fileID: 11400000, guid: 8be0944b181c64a7f945a599efa605c9, type: 2}
-  - {fileID: 11400000, guid: 85f14885bc269458ea9341aab9c6c5c9, type: 2}
   rarity: 0
   rarityTag: {fileID: 407686106, guid: 7aef14fcc59c0418082c0d874b5d5c94, type: 3}
   funFacts:

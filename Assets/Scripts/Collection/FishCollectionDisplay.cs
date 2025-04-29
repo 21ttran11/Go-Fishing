@@ -92,11 +92,12 @@ public class FishCollectionDisplay : MonoBehaviour
                 nameTag.sprite = questionMarkTag;
                 nameTag.SetNativeSize();
 
-                rarityTag.sprite = null;
-                newTag.sprite = null;
+                rarityTag.sprite = fish.rarityTag;
+                rarityTag.SetNativeSize();
+
+                newTag.sprite = newTagSprite;
 
                 Color transparent = new Color(1, 1, 1, 0);
-                rarityTag.color = transparent;
                 newTag.color = transparent;
             }
         }

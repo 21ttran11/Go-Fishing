@@ -111,7 +111,7 @@ public class FishSelector : MonoBehaviour
         fishRect.anchorMax = new Vector2(0.5f, 0.5f);
         fishRect.pivot = new Vector2(0.5f, 0.5f);
         fishRect.anchoredPosition = Vector2.zero;
-        fishRect.anchoredPosition += new Vector2(0f, 150f);
+        fishRect.anchoredPosition += new Vector2(0f, 120f);
         fishRect.localScale = Vector3.one * 1.3f;
 
         Image fishImage = fishUI.transform.Find("FishIcon").GetComponent<Image>();

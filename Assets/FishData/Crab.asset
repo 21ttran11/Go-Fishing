@@ -17,7 +17,8 @@ MonoBehaviour:
   fishSprite: {fileID: -1278087976, guid: bb34b7c23a8f548769c1ae0642941044, type: 3}
   nameTag: {fileID: 1021682888, guid: aa1734199b6b04768b93cbee77d903a8, type: 3}
   unknownSprite: {fileID: 1367167644, guid: 58cc50f919ede4f558301bfb704f85e3, type: 3}
-  description: looks a little...grumpy
+  description: looks ... grumpy
+  availableZones: []
   rarity: 0
   rarityTag: {fileID: -230196512, guid: f422a546701554a8e9f3f101f8726495, type: 3}
   funFacts:

@@ -13,6 +13,10 @@ public class UserAuthentication : MonoBehaviour
     public TMP_InputField passwordInputField;
     public TMP_Text feedbackText;
 
+    [Header("Animation references")]
+    public Animator fishTransition;
+    public GameObject fields;
+
     public UnityEvent signIn;
     private FirebaseAuth auth;
 
@@ -29,6 +33,26 @@ public class UserAuthentication : MonoBehaviour
         }
         auth = FirebaseAuth.DefaultInstance;
         Debug.Log("Firebase Auth ready.");
+
+        if (auth.CurrentUser != null)
+        {
+            Debug.Log("User already signed in: " + auth.CurrentUser.Email);
+            feedbackText.text = "Welcome back, " + auth.CurrentUser.Email;
+            signIn?.Invoke(); 
+        }
+        else
+        {
+            Debug.Log("No user is currently signed in.");
+            feedbackText.text = "Please log in.";
+            if(fishTransition != null)
+            {
+                fishTransition.Play("fish transition");
+            }
+            if(fields != null)
+            {
+                fields.SetActive(true);
+            }
+        }
     }
 
     public void RegisterUser()
