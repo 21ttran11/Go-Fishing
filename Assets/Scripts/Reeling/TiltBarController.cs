@@ -23,6 +23,8 @@ public class TiltBarController : MonoBehaviour
 
     public UnityEngine.UI.Image completionBarUI;
     public UnityEvent onWin;
+    public UnityEvent onComplete;
+    public GameObject lostUI;
 
     void Start()
     {
@@ -57,11 +59,14 @@ public class TiltBarController : MonoBehaviour
         {
             hasWon = true;
             Debug.Log("You win!");
-            onWin?.Invoke(); 
+            onWin?.Invoke();
+            onComplete?.Invoke();
         }
         else if (completion <= 0f)
         {
             Debug.Log("Game Over! You lost.");
+            lostUI.SetActive(true);
+            onComplete?.Invoke();
         }
 
         completionBarUI.fillAmount = completion;

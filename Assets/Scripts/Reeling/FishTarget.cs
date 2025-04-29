@@ -19,6 +19,8 @@ public class FishTarget : MonoBehaviour
     private float timer = 0f;
     private float timeSinceLastChange = 0f;
 
+    private bool isStopped = false;
+
     void Start()
     {
         target = GetComponent<RectTransform>();
@@ -28,6 +30,7 @@ public class FishTarget : MonoBehaviour
 
     void Update()
     {
+        if (isStopped) return;
         timer += Time.deltaTime * currentSpeed;
 
         Vector2 pos = target.anchoredPosition;
@@ -52,6 +55,6 @@ public class FishTarget : MonoBehaviour
 
     public void StopTarget()
     {
-        Destroy(this.gameObject);
+        isStopped = true;
     }
 }
