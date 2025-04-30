@@ -52,7 +52,7 @@ public class UserAuthentication : MonoBehaviour
             if (fishTransition != null)
             {
                 hasCurrentUser = false;
-                StartCoroutine(WaitForTransition(0.5f));
+                StartCoroutine(WaitForTransition(1f));
                 fishTransition.Play("fish transition");
             }
             if (fields != null)

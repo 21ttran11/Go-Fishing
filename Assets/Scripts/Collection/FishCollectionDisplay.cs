@@ -15,6 +15,10 @@ public class FishCollectionDisplay : MonoBehaviour
     public Sprite rarityTag;
     public FishPopup fishPopup;
 
+    public AudioClip sfx;
+
+    public AudioManager audioManager;
+
     private FirebaseFirestore db;
 
     void Start()
@@ -27,32 +31,32 @@ public class FishCollectionDisplay : MonoBehaviour
 
     private async Task LoadAndDisplayFish(string userId)
     {
-        HashSet<string> caughtFishIds = await GetCaughtFish(userId);
-        DisplayFish(fishDatabase.allFish, caughtFishIds);
+        Dictionary<string, int> fishCatchCounts = await GetCaughtFish(userId);
+        DisplayFish(fishDatabase.allFish, fishCatchCounts);
     }
 
-    private async Task<HashSet<string>> GetCaughtFish(string userId)
+    private async Task<Dictionary<string, int>> GetCaughtFish(string userId)
     {
-        HashSet<string> caughtFishIds = new HashSet<string>();
-        DocumentReference docRef = db.Collection("users").Document(userId);
+        var db = FirebaseFirestore.DefaultInstance;
+        var docRef = db.Collection("users").Document(userId);
         DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
 
-        if (snapshot.Exists && snapshot.ContainsField("caughtFish"))
+        Dictionary<string, int> catchCounts = new Dictionary<string, int>();
+
+        if (snapshot.Exists && snapshot.TryGetValue("caughtFish", out Dictionary<string, object> caughtFish))
         {
-            Dictionary<string, object> caughtFish = snapshot.GetValue<Dictionary<string, object>>("caughtFish");
-            foreach (var kvp in caughtFish)
+            foreach (var entry in caughtFish)
             {
-                if ((bool)kvp.Value == true)
-                {
-                    caughtFishIds.Add(kvp.Key);
-                }
+                // Convert to int if stored as number
+                int count = System.Convert.ToInt32(entry.Value);
+                catchCounts[entry.Key] = count;
             }
         }
 
-        return caughtFishIds;
+        return catchCounts;
     }
 
-    private void DisplayFish(List<FishData> allFish, HashSet<string> caughtFishIds)
+    private void DisplayFish(List<FishData> allFish, Dictionary<string, int> catchCounts)
     {
         foreach (FishData fish in allFish)
         {
@@ -63,13 +67,21 @@ public class FishCollectionDisplay : MonoBehaviour
             Image newTag = fishUI.transform.Find("Tags/NewTag").GetComponent<Image>();
             Button button = fishUI.GetComponent<Button>();
 
-            if (caughtFishIds.Contains(fish.fishId))
+            if (catchCounts.ContainsKey(fish.fishId))
             {
+                int count = catchCounts[fish.fishId];
+
                 if (button != null)
                 {
                     FishData capturedFish = fish;
+                    int capturedCount = count;
+                    Debug.Log(capturedCount);
+
                     button.onClick.AddListener(() => {
-                        fishPopup.Show(capturedFish, fishItemPrefab);
+                        fishPopup.Show(capturedFish, fishItemPrefab, capturedCount);
+                    });
+                    button.onClick.AddListener(() => {
+                        audioManager.PlayAudio(sfx);
                     });
                 }
 

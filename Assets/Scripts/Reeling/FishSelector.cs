@@ -4,6 +4,7 @@ using Firebase.Firestore;
 using Firebase.Auth;
 using System.Threading.Tasks;
 using UnityEngine.UI;
+using System;
 
 public class FishSelector : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class FishSelector : MonoBehaviour
             return;
         }
 
-        int index = Random.Range(0, availableFish.Count);
+        int index = UnityEngine.Random.Range(0, availableFish.Count);
         selectedFish = availableFish[index];
         Debug.Log("Caught a " + selectedFish.fishName);
         CaughtPopup();
@@ -111,7 +112,7 @@ public class FishSelector : MonoBehaviour
         fishRect.anchorMax = new Vector2(0.5f, 0.5f);
         fishRect.pivot = new Vector2(0.5f, 0.5f);
         fishRect.anchoredPosition = Vector2.zero;
-        fishRect.anchoredPosition += new Vector2(0f, 120f);
+        fishRect.anchoredPosition += new Vector2(0f, 90f);
         fishRect.localScale = Vector3.one * 1.3f;
 
         Image fishImage = fishUI.transform.Find("FishIcon").GetComponent<Image>();
@@ -154,46 +155,48 @@ public class FishSelector : MonoBehaviour
             Debug.LogError("User is not signed in!");
             return;
         }
-        Debug.Log("User ID: " + userIdCheck);
 
         DocumentReference docRef = db.Collection("users").Document(userId);
 
-        Debug.Log("Fetching document for user: " + userIdCheck);
-
         DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+        Dictionary<string, object> updates = new Dictionary<string, object>();
+
+        Dictionary<string, object> caughtFish = snapshot.ContainsField("caughtFish")
+            ? snapshot.GetValue<Dictionary<string, object>>("caughtFish")
+            : new Dictionary<string, object>();
+
+        if (!caughtFish.ContainsKey(fishId))
+        {
+            caughtFish[fishId] = true;
+            updates["caughtFish"] = caughtFish;
+        }
+
+        Dictionary<string, object> caughtFishCount = snapshot.ContainsField("caughtFishCount")
+            ? snapshot.GetValue<Dictionary<string, object>>("caughtFishCount")
+            : new Dictionary<string, object>();
+
+        long count = 0;
+        if (caughtFishCount.ContainsKey(fishId))
+        {
+            try
+            {
+                count = Convert.ToInt64(caughtFishCount[fishId]);
+            }
+            catch
+            {
+                count = 0;
+            }
+        }
+        caughtFishCount[fishId] = count + 1;
+        updates["caughtFishCount"] = caughtFishCount;
+
         if (snapshot.Exists)
         {
-            Debug.Log("Document exists");
+            await docRef.UpdateAsync(updates);
         }
         else
         {
-            Debug.Log("Document does not exist, creating new one");
-        }
-
-        if (snapshot.Exists)
-        {
-            Dictionary<string, object> caughtFish = snapshot.GetValue<Dictionary<string, object>>("caughtFish");
-            if (caughtFish == null)
-            {
-                Debug.Log("Creating caughtFish dictionary");
-                caughtFish = new Dictionary<string, object>();
-            }
-
-            if (!caughtFish.ContainsKey(fishId))
-            {
-                Debug.Log("Adding fish");
-                caughtFish.Add(fishId, true);
-            }
-
-            await docRef.UpdateAsync("caughtFish", caughtFish);
-        }
-        else
-        {
-            Dictionary<string, object> caughtFish = new Dictionary<string, object>
-            {
-                { fishId, true }
-            };
-            await docRef.SetAsync(new Dictionary<string, object> { { "caughtFish", caughtFish } });
+            await docRef.SetAsync(updates);
         }
     }
 }

@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 84462447}
   - component: {fileID: 84462446}
   - component: {fileID: 84462445}
+  - component: {fileID: 84462448}
   m_Layer: 5
   m_Name: Winning Background
   m_TagString: Untagged
@@ -297,6 +298,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84462443}
   m_CullTransparentMesh: 1
+--- !u!82 &84462448
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84462443}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eb44c687422fc498da7fb5cdc3df68c4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.379
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &117541937
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,11 +426,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slidingBar: {fileID: 1542157076}
   target: {fileID: 1624968414}
-  sensitivity: 20000
-  maxSpeed: 1032.2
+  sensitivity: 10000
+  maxSpeed: 1600
   minY: -835
   maxY: 850.3
-  completion: 0.2
+  completion: 0.3
   fillSpeed: 0.2
   drainSpeed: 0.25
   completionBarUI: {fileID: 2083678867}
@@ -1988,8 +2085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5, y: -33.985962}
-  m_SizeDelta: {x: 352.2888, y: 456.2149}
+  m_AnchoredPosition: {x: 3.9083, y: -22}
+  m_SizeDelta: {x: 263.232, y: 462.5761}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542157077
 MonoBehaviour:
@@ -2117,15 +2214,15 @@ RectTransform:
   m_GameObject: {fileID: 1624968413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 6.08, y: 6.08, z: 6.08}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 869460918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2077, y: -130.16}
-  m_SizeDelta: {x: 448.9324, y: 159.4771}
+  m_AnchoredPosition: {x: 43, y: -86}
+  m_SizeDelta: {x: 72, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624968415
 MonoBehaviour:
@@ -2147,7 +2244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3878a79dc29644342929ceb7b85357a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2534,8 +2631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5, y: -992.4}
-  m_SizeDelta: {x: 1167, y: 547.20276}
+  m_AnchoredPosition: {x: -0.60388, y: -992.4}
+  m_SizeDelta: {x: 1171.2, y: 547.2028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141985840
 MonoBehaviour:
