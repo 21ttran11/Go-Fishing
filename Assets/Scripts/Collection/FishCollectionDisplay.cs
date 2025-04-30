@@ -43,13 +43,22 @@ public class FishCollectionDisplay : MonoBehaviour
 
         Dictionary<string, int> catchCounts = new Dictionary<string, int>();
 
-        if (snapshot.Exists && snapshot.TryGetValue("caughtFish", out Dictionary<string, object> caughtFish))
+        if (snapshot.Exists && snapshot.TryGetValue("caughtFishCount", out Dictionary<string, object> caughtFishCount))
         {
-            foreach (var entry in caughtFish)
+            foreach (var entry in caughtFishCount)
             {
-                // Convert to int if stored as number
-                int count = System.Convert.ToInt32(entry.Value);
-                catchCounts[entry.Key] = count;
+                if (entry.Value is long longValue)
+                {
+                    catchCounts[entry.Key] = (int)longValue;
+                }
+                else if (entry.Value is int intValue)
+                {
+                    catchCounts[entry.Key] = intValue;
+                }
+                else
+                {
+                    Debug.LogWarning($"Unexpected value type for {entry.Key}: {entry.Value}");
+                }
             }
         }
 
@@ -70,6 +79,7 @@ public class FishCollectionDisplay : MonoBehaviour
             if (catchCounts.ContainsKey(fish.fishId))
             {
                 int count = catchCounts[fish.fishId];
+                Debug.Log(count);
 
                 if (button != null)
                 {
